@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIRRORNODE — Architectural Intelligence for AI-Native Infrastructure</title>
+  <meta name="description" content="Model mission-critical platforms across providers, regions, storage tiers, agent workflows, and failover patterns. Stress-test before reality breaks the assumptions." />
+
+  <!-- Fonts: Clash Display (display) + Satoshi (body) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon inline SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d0c0b'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%234f98a3' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%234f98a3'/%3E%3Cline x1='16' y1='4' x2='16' y2='9' stroke='%234f98a3' stroke-width='1.5'/%3E%3Cline x1='16' y1='23' x2='16' y2='28' stroke='%234f98a3' stroke-width='1.5'/%3E%3Cline x1='4' y1='16' x2='9' y2='16' stroke='%234f98a3' stroke-width='1.5'/%3E%3Cline x1='23' y1='16' x2='28' y2='16' stroke='%234f98a3' stroke-width='1.5'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="MIRRORNODE home">
+        <svg class="logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14" cy="14" r="5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14" cy="14" r="2" fill="currentColor"/>
+          <line x1="14" y1="2" x2="14" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="14" y1="21" x2="14" y2="26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="2" y1="14" x2="7" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="21" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-wordmark">MIRRORNODE</span>
+      </a>
+
+      <!-- Nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#framework" class="nav-link">Framework</a></li>
+        <li><a href="#use-cases" class="nav-link">Use cases</a></li>
+        <li><a href="#how-it-works" class="nav-link">How it works</a></li>
+        <li><a href="https://public-ivory-mu.vercel.app" class="nav-link nav-link--accent" target="_blank" rel="noopener">Parallax Lab ↗</a></li>
+      </ul>
+
+      <!-- Controls -->
+      <div class="nav-controls">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#framework" class="mobile-link">Framework</a></li>
+        <li><a href="#use-cases" class="mobile-link">Use cases</a></li>
+        <li><a href="#how-it-works" class="mobile-link">How it works</a></li>
+        <li><a href="https://public-ivory-mu.vercel.app" class="mobile-link mobile-link--accent" target="_blank" rel="noopener">Parallax Lab ↗</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main role="main">
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <!-- Ambient grid background -->
+      <div class="hero-grid" aria-hidden="true"></div>
+      <!-- Radial glow -->
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <!-- Eyebrow -->
+        <div class="hero-eyebrow reveal" data-reveal>
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          MIRRORNODE / Infrastructure Intelligence
+        </div>
+
+        <!-- Headline -->
+        <h1 id="hero-heading" class="hero-heading reveal" data-reveal>
+          Model the system<br>
+          <span class="hero-heading--accent">before it fails.</span>
+        </h1>
+
+        <!-- Sub -->
+        <p class="hero-sub reveal" data-reveal>
+          MIRRORNODE helps operators model mission-critical platforms across providers,
+          regions, storage tiers, agent workflows, and failover patterns — then stress-test
+          the design before reality breaks the assumptions.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas reveal" data-reveal>
+          <a href="https://public-ivory-mu.vercel.app" class="btn btn--primary" target="_blank" rel="noopener">
+            Launch Parallax Lab
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#framework" class="btn btn--ghost">
+            View MIRRORNODE framework
+          </a>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="hero-stats reveal" data-reveal aria-label="Platform statistics">
+          <div class="stat-item">
+            <span class="stat-value">6</span>
+            <span class="stat-label">Agent nodes</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-value">Modeled</span>
+            <span class="stat-label">Settlement-scale scenario seed</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-value">RTO/RPO</span>
+            <span class="stat-label">Live under fault injection</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-value">5 tabs</span>
+            <span class="stat-label">Architecture · Storage · Decision tree · Stress · Drift</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parallax teaser terminal -->
+      <div class="hero-teaser reveal" data-reveal aria-label="Parallax Lab interface preview">
+        <div class="terminal-chrome">
+          <div class="terminal-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="terminal-title">parallax — architecture lab</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-row">
+            <span class="t-label">Provider mix</span>
+            <div class="t-bar-wrap"><div class="t-bar t-bar--aws" style="--pct:62%"></div><div class="t-bar t-bar--azure" style="--pct:38%"></div></div>
+            <span class="t-val">AWS 62% · Azure 38%</span>
+          </div>
+          <div class="terminal-row">
+            <span class="t-label">Failover</span>
+            <div class="t-pills">
+              <span class="t-pill t-pill--active">Active-Active</span>
+              <span class="t-pill">Warm Standby</span>
+              <span class="t-pill">Cold</span>
+            </div>
+          </div>
+          <div class="terminal-row">
+            <span class="t-label">RTO target</span>
+            <span class="t-val t-val--green">4m 12s <span class="t-badge t-badge--ok">✓ within target</span></span>
+          </div>
+          <div class="terminal-row">
+            <span class="t-label">RPO target</span>
+            <span class="t-val t-val--green">0m 48s <span class="t-badge t-badge--ok">✓ within target</span></span>
+          </div>
+          <div class="terminal-divider" aria-hidden="true"></div>
+          <div class="terminal-row">
+            <span class="t-label">Concentration risk</span>
+            <div class="t-meter-wrap" role="meter" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" aria-label="Concentration risk: 38%">
+              <div class="t-meter"><div class="t-meter-fill t-meter-fill--low" style="--pct:38%"></div></div>
+              <span class="t-val">38% — Moderate</span>
+            </div>
+          </div>
+          <div class="terminal-row">
+            <span class="t-label">Operational tax</span>
+            <div class="t-meter-wrap" role="meter" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" aria-label="Operational tax: 52%">
+              <div class="t-meter"><div class="t-meter-fill t-meter-fill--mid" style="--pct:52%"></div></div>
+              <span class="t-val">52% — Active-Active overhead</span>
+            </div>
+          </div>
+          <div class="terminal-row">
+            <span class="t-label">Fault: AZ outage</span>
+            <span class="t-val t-val--orange">+1m 34s RTO · <span class="t-badge t-badge--warn">Stress active</span></span>
+          </div>
+          <div class="terminal-row terminal-row--nodes">
+            <span class="t-label">Agent nodes</span>
+            <div class="t-nodes">
+              <span class="t-node t-node--on" title="Theia — AI orchestration">TH</span>
+              <span class="t-node t-node--on" title="Grok — real-time inference">GK</span>
+              <span class="t-node t-node--on" title="Claude — reasoning layer">CL</span>
+              <span class="t-node t-node--on" title="Merlin — workflow">ME</span>
+              <span class="t-node t-node--on" title="Lucian — data pipeline">LU</span>
+              <span class="t-node t-node--warn" title="Governance — audit (degraded)">GV</span>
+            </div>
+          </div>
+          <div class="terminal-footer" aria-live="polite">
+            <span class="t-cursor" aria-hidden="true"></span>
+            <span class="terminal-prompt">Open Parallax Lab to interact →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         PROOF STRIP — 3 core capabilities
+    ═══════════════════════════════════════════ -->
+    <section class="proof-strip" aria-label="Core capabilities">
+      <div class="proof-inner">
+        <div class="proof-item reveal" data-reveal>
+          <div class="proof-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="proof-title">Model architecture</h3>
+          <p class="proof-body">Providers, regions, AZs, storage tiers, agents, dependencies, and recovery targets — all in one coherent model.</p>
+        </div>
+        <div class="proof-item reveal" data-reveal>
+          <div class="proof-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3 class="proof-title">Inject stress</h3>
+          <p class="proof-body">Simulate AZ outages, data lag, queue backlogs, bad deploys, and operational overload. Watch simulated RTO, RPO, and cost tradeoffs update under modeled failure scenarios.</p>
+        </div>
+        <div class="proof-item reveal" data-reveal>
+          <div class="proof-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3 class="proof-title">Detect divergence</h3>
+          <p class="proof-body">Compare declared architecture against connected evidence sources such as repositories, deployment records, and runbooks. Surface drift before it becomes an incident.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         FRAMEWORK SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="section-framework" id="framework" aria-labelledby="framework-heading">
+      <div class="section-inner">
+        <div class="section-label reveal" data-reveal>The MIRRORNODE framework</div>
+        <h2 id="framework-heading" class="section-heading reveal" data-reveal>
+          A shared thinking environment for infrastructure decisions.
+        </h2>
+        <p class="section-sub reveal" data-reveal>
+          MIRRORNODE turns abstract architecture claims into a live, manipulable model.
+          It exposes the gap between what the system says it is and what it actually does.
+        </p>
+
+        <!-- Framework anatomy grid -->
+        <div class="framework-grid">
+          <!-- Node taxonomy -->
+          <div class="framework-card reveal" data-reveal>
+            <div class="framework-card-label">Node taxonomy</div>
+            <div class="node-list">
+              <div class="node-row">
+                <span class="node-badge node-badge--ai">AI</span>
+                <div class="node-info">
+                  <span class="node-name">Theia</span>
+                  <span class="node-role">Orchestration layer</span>
+                </div>
+                <span class="node-status node-status--ok">●</span>
+              </div>
+              <div class="node-row">
+                <span class="node-badge node-badge--ai">AI</span>
+                <div class="node-info">
+                  <span class="node-name">Grok</span>
+                  <span class="node-role">Real-time inference</span>
+                </div>
+                <span class="node-status node-status--ok">●</span>
+              </div>
+              <div class="node-row">
+                <span class="node-badge node-badge--ai">AI</span>
+                <div class="node-info">
+                  <span class="node-name">Claude</span>
+                  <span class="node-role">Reasoning &amp; synthesis</span>
+                </div>
+                <span class="node-status node-status--ok">●</span>
+              </div>
+              <div class="node-row">
+                <span class="node-badge node-badge--wf">WF</span>
+                <div class="node-info">
+                  <span class="node-name">Merlin</span>
+                  <span class="node-role">Workflow automation</span>
+                </div>
+                <span class="node-status node-status--ok">●</span>
+              </div>
+              <div class="node-row">
+                <span class="node-badge node-badge--data">DP</span>
+                <div class="node-info">
+                  <span class="node-name">Lucian</span>
+                  <span class="node-role">Data pipeline</span>
+                </div>
+                <span class="node-status node-status--ok">●</span>
+              </div>
+              <div class="node-row">
+                <span class="node-badge node-badge--audit">AUD</span>
+                <div class="node-info">
+                  <span class="node-name">Governance</span>
+                  <span class="node-role">Audit &amp; review</span>
+                </div>
+                <span class="node-status node-status--warn">●</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Posture scores -->
+          <div class="framework-card reveal" data-reveal>
+            <div class="framework-card-label">System posture</div>
+            <div class="posture-list">
+              <div class="posture-row">
+                <span class="posture-name">Resilience</span>
+                <div class="posture-bar-wrap">
+                  <div class="posture-bar" style="--score:78">
+                    <div class="posture-fill posture-fill--good"></div>
+                  </div>
+                </div>
+                <span class="posture-score">78</span>
+              </div>
+              <div class="posture-row">
+                <span class="posture-name">Observability</span>
+                <div class="posture-bar-wrap">
+                  <div class="posture-bar" style="--score:65">
+                    <div class="posture-fill posture-fill--mid"></div>
+                  </div>
+                </div>
+                <span class="posture-score">65</span>
+              </div>
+              <div class="posture-row">
+                <span class="posture-name">Security surface</span>
+                <div class="posture-bar-wrap">
+                  <div class="posture-bar" style="--score:41">
+                    <div class="posture-fill posture-fill--warn"></div>
+                  </div>
+                </div>
+                <span class="posture-score">41</span>
+              </div>
+              <div class="posture-row">
+                <span class="posture-name">Audit posture</span>
+                <div class="posture-bar-wrap">
+                  <div class="posture-bar" style="--score:83">
+                    <div class="posture-fill posture-fill--good"></div>
+                  </div>
+                </div>
+                <span class="posture-score">83</span>
+              </div>
+              <div class="posture-row">
+                <span class="posture-name">Cost efficiency</span>
+                <div class="posture-bar-wrap">
+                  <div class="posture-bar" style="--score:57">
+                    <div class="posture-fill posture-fill--mid"></div>
+                  </div>
+                </div>
+                <span class="posture-score">57</span>
+              </div>
+              <div class="posture-row">
+                <span class="posture-name">Governance</span>
+                <div class="posture-bar-wrap">
+                  <div class="posture-bar" style="--score:71">
+                    <div class="posture-fill posture-fill--mid"></div>
+                  </div>
+                </div>
+                <span class="posture-score">71</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- What the framework models -->
+          <div class="framework-card framework-card--wide reveal" data-reveal>
+            <div class="framework-card-label">What the framework models</div>
+            <div class="framework-feature-grid">
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Provider mix &amp; concentration risk</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Region &amp; AZ topology</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Storage tiers: NVMe · block · object · archive</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Failover patterns &amp; blast radius</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">RTO / RPO under fault scenarios</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Agent node dependency graph</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Drift: declared vs. observed state</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Relative cost: compute · network · storage · resilience</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Regulatory posture &amp; runbook currency</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Multi/hybrid cloud decision tree</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         USE CASES
+    ═══════════════════════════════════════════ -->
+    <section class="section-use-cases" id="use-cases" aria-labelledby="uc-heading">
+      <div class="section-inner">
+        <div class="section-label reveal" data-reveal>Who is MIRRORNODE for?</div>
+        <h2 id="uc-heading" class="section-heading reveal" data-reveal>
+          Four lanes. One model.
+        </h2>
+        <p class="section-sub reveal" data-reveal>
+          Parallax supports different review depths for builders, operators, and governance teams.
+        </p>
+
+        <div class="uc-grid">
+          <a href="https://public-ivory-mu.vercel.app" class="uc-card reveal" data-reveal target="_blank" rel="noopener" aria-label="AI platform builders — open Parallax Lab">
+            <div class="uc-card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="uc-card-title">AI platform builders</h3>
+            <p class="uc-card-body">Model multi-agent systems, orchestration rails, vector search, and runtime instability. Know your single points of failure before they fire.</p>
+            <span class="uc-card-cta">Open Parallax Lab ↗</span>
+          </a>
+
+          <a href="https://public-ivory-mu.vercel.app" class="uc-card reveal" data-reveal target="_blank" rel="noopener" aria-label="Infrastructure operators — open Parallax Lab">
+            <div class="uc-card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+                <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="uc-card-title">Infrastructure operators</h3>
+            <p class="uc-card-body">Stress-test failover, storage, provider concentration, regions, deployment lanes, and incident readiness against real-world fault scenarios.</p>
+            <span class="uc-card-cta">Open Parallax Lab ↗</span>
+          </a>
+
+          <a href="https://public-ivory-mu.vercel.app" class="uc-card reveal" data-reveal target="_blank" rel="noopener" aria-label="Audit and governance — open Parallax Lab">
+            <div class="uc-card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="uc-card-title">Audit &amp; governance</h3>
+            <p class="uc-card-body">Review architecture assumptions, runbook currency, unresolved risks, and possible production drift in one place.</p>
+            <span class="uc-card-cta">Open Parallax Lab ↗</span>
+          </a>
+
+          <a href="https://public-ivory-mu.vercel.app" class="uc-card reveal" data-reveal target="_blank" rel="noopener" aria-label="Investors and partners — open Parallax Lab">
+            <div class="uc-card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+              </svg>
+            </div>
+            <h3 class="uc-card-title">Investors &amp; partners</h3>
+            <p class="uc-card-body">Understand why MIRRORNODE is a control plane for complex technical systems — not another AI dashboard. Touch it instead of reading about it.</p>
+            <span class="uc-card-cta">Open Parallax Lab ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         HOW IT WORKS (3-step)
+    ═══════════════════════════════════════════ -->
+    <section class="section-hiw" id="how-it-works" aria-labelledby="hiw-heading">
+      <div class="section-inner">
+        <div class="section-label reveal" data-reveal>How it works</div>
+        <h2 id="hiw-heading" class="section-heading reveal" data-reveal>
+          Declare, stress, reconcile.
+        </h2>
+
+        <div class="hiw-steps">
+          <div class="hiw-step reveal" data-reveal>
+            <div class="hiw-step-num" aria-hidden="true">01</div>
+            <div class="hiw-step-content">
+              <h3 class="hiw-step-title">Architecture model</h3>
+              <p class="hiw-step-body">Declare what the system says it is. Providers, regions, agents, dependencies, storage tiers, recovery targets, and criticality class. This becomes the source of truth inside MIRRORNODE.</p>
+            </div>
+          </div>
+
+          <div class="hiw-connector" aria-hidden="true"></div>
+
+          <div class="hiw-step reveal" data-reveal>
+            <div class="hiw-step-num" aria-hidden="true">02</div>
+            <div class="hiw-step-content">
+              <h3 class="hiw-step-title">Stress engine</h3>
+              <p class="hiw-step-body">Run fault scenarios against the declared model. AZ outage, data lag, bad deploy, queue backlog, provider failure, operational overload. Review simulated RTO, RPO, availability, cost, and data-loss exposure changes before production deployment.</p>
+            </div>
+          </div>
+
+          <div class="hiw-connector" aria-hidden="true"></div>
+
+          <div class="hiw-step reveal" data-reveal>
+            <div class="hiw-step-num" aria-hidden="true">03</div>
+            <div class="hiw-step-content">
+              <h3 class="hiw-step-title">Drift detector</h3>
+              <p class="hiw-step-body">Compare the declared model against connected evidence sources and available operational records. Surface possible missing IaC, undeclared dependencies, stale runbooks, deployment mismatches, and unresolved risks before they become incidents.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         DRIFT DETECTOR — live widget
+    ═══════════════════════════════════════════ -->
+    <section class="section-drift" aria-labelledby="drift-heading">
+      <div class="section-inner">
+        <div class="section-label reveal" data-reveal>Live · GitHub + Linear</div>
+        <h2 id="drift-heading" class="section-heading reveal" data-reveal>
+          Drift review surface
+        </h2>
+        <p class="section-sub reveal" data-reveal>
+          The drift review surface compares your declared architecture manifest against connected evidence sources when configured. It is designed to reduce manual review, not replace formal audit or operational verification.
+        </p>
+
+        <div class="drift-widget reveal" data-reveal>
+          <!-- Widget header -->
+          <div class="drift-widget-header">
+            <div class="drift-widget-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              Architecture drift status
+            </div>
+            <div class="drift-live-badge" aria-label="Live polling every 30 seconds">
+              <span class="drift-live-dot" id="drift-live-dot" aria-hidden="true"></span>
+              Live · 30s poll
+            </div>
+          </div>
+
+          <!-- Status row -->
+          <div class="drift-status-row" aria-live="polite" aria-atomic="true">
+            <div class="drift-status-icon drift-status-icon--loading" id="drift-status-icon" aria-hidden="true">
+              <svg class="spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></svg>
+            </div>
+            <div class="drift-status-text">
+              <div class="drift-status-heading" id="drift-status-heading">Connecting to GitHub &amp; Linear&hellip;</div>
+              <div class="drift-status-sub" id="drift-status-sub">Fetching declared architecture and open drift issues</div>
+            </div>
+            <div class="drift-status-ts" id="drift-status-ts" aria-label="Last updated time"></div>
+          </div>
+
+          <!-- Findings list -->
+          <ul class="drift-findings" id="drift-findings-list" aria-label="Drift findings" role="list">
+            <li class="drift-finding">
+              <span class="drift-finding-dot drift-finding-dot--info" aria-hidden="true"></span>
+              <div class="drift-finding-body">
+                <div class="drift-finding-title">Initializing scan&hellip;</div>
+                <div class="drift-finding-meta">Comparing declared manifest against GitHub + Linear</div>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Connect callout -->
+          <div class="drift-connect-callout">
+            <div class="drift-connect-text">
+              <strong>Wire to live data:</strong> deploy <code style="font-size:var(--text-xs);color:var(--color-primary)">api/drift.js</code> with
+              <code style="font-size:var(--text-xs);color:var(--color-primary)">GITHUB_TOKEN</code> +
+              <code style="font-size:var(--text-xs);color:var(--color-primary)">LINEAR_TOKEN</code> env vars.
+              Webhook push also supported &mdash; see <code style="font-size:var(--text-xs);color:var(--color-primary)">api/webhook/github.js</code>.
+            </div>
+            <div class="drift-connect-btns">
+              <a href="https://github.com/INPhase-Resplendence-Cognition" class="drift-connect-btn" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://linear.app" class="drift-connect-btn" target="_blank" rel="noopener">Linear</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         PARALLAX CTA
+    ═══════════════════════════════════════════ -->
+    <section class="section-cta" aria-labelledby="cta-heading">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="section-inner cta-inner">
+        <h2 id="cta-heading" class="cta-heading reveal" data-reveal>Enter Parallax.</h2>
+        <p class="cta-sub reveal" data-reveal>
+          Change provider mix, storage tiers, regions, failover patterns, fault scenarios, and drift rules.
+          Review cost, resilience, concentration risk, RTO, RPO, and operational tradeoffs across modeled scenarios.
+        </p>
+        <a href="https://public-ivory-mu.vercel.app" class="btn btn--primary btn--large reveal" data-reveal target="_blank" rel="noopener">
+          Open Parallax Lab
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" aria-label="MIRRORNODE home">
+          <svg class="logo-mark" width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="14" cy="14" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="14" cy="14" r="2" fill="currentColor"/>
+            <line x1="14" y1="2" x2="14" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14" y1="21" x2="14" y2="26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="14" x2="7" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="21" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-wordmark">MIRRORNODE</span>
+        </a>
+        <p class="footer-tagline">Architectural intelligence for AI-native infrastructure.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-label">Product</span>
+          <a href="https://public-ivory-mu.vercel.app" class="footer-link" target="_blank" rel="noopener">Parallax Lab</a>
+          <a href="#framework" class="footer-link">Framework</a>
+          <a href="#how-it-works" class="footer-link">How it works</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-label">Use cases</span>
+          <a href="#use-cases" class="footer-link">AI platforms</a>
+          <a href="#use-cases" class="footer-link">Infrastructure ops</a>
+          <a href="#use-cases" class="footer-link">Audit &amp; governance</a>
+          <a href="#use-cases" class="footer-link">Investors</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 MIRRORNODE · INPhase-Resplendence-Cognition</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/stream/drift", "destination": "/api/stream/drift" },
+    { "source": "/api/webhook/github", "destination": "/api/webhook/github" },
+    { "source": "/api/webhook/linear", "destination": "/api/webhook/linear" },
+    { "source": "/api/drift", "destination": "/api/drift" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin",  "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ],
+  "env": {
+    "GITHUB_TOKEN":           "@github-token",
+    "LINEAR_TOKEN":           "@linear-token",
+    "GITHUB_WEBHOOK_SECRET":  "@github-webhook-secret",
+    "LINEAR_WEBHOOK_SECRET":  "@linear-webhook-secret",
+    "GITHUB_OWNER":           "INPhase-Resplendence-Cognition",
+    "GITHUB_REPO":            "infra-declaration",
+    "GITHUB_PATH":            "HEAD:architecture.yaml",
+    "LINEAR_DRIFT_LABEL":     "architecture-drift"
+  }
+}

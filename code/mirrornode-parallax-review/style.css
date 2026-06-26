@@ -429,6 +429,22 @@ button { cursor: pointer; background: none; border: none; }
   margin-bottom: var(--space-8);
   line-height: 1.7;
 }
+.hero-boundary {
+  max-width: 68ch;
+  margin-bottom: var(--space-8);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid color-mix(in oklab, var(--color-warn) 35%, var(--color-border));
+  border-left: 3px solid var(--color-warn);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--color-warn) 8%, var(--color-surface));
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.hero-boundary strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
@@ -693,6 +709,11 @@ button { cursor: pointer; background: none; border: none; }
 .ff-item { display: flex; align-items: flex-start; gap: var(--space-2); }
 .ff-icon { color: var(--color-primary); font-size: 0.7rem; margin-top: 3px; flex-shrink: 0; }
 .ff-label { font-size: var(--text-sm); color: var(--color-text-muted); }
+.ff-label code {
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+  font-size: 0.9em;
+  color: var(--color-primary);
+}
 @media (max-width: 800px) {
   .framework-grid { grid-template-columns: 1fr; }
   .framework-card--wide { grid-column: 1; }
@@ -752,7 +773,7 @@ button { cursor: pointer; background: none; border: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   DRIFT DETECTOR (live widget)
+   DRIFT REVIEW (declaration diff widget)
    ═══════════════════════════════════════════════════════════ */
 .section-drift { background: var(--color-surface); border-top: 1px solid var(--color-border); }
 .drift-widget {

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    MIRRORNODE — main.js
-   Theme toggle · Scroll reveal · Mobile menu · Drift detector
+   Theme toggle · Scroll reveal · Mobile menu · Drift review
    ═══════════════════════════════════════════════════════════ */
 
 'use strict';
@@ -88,7 +88,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ═══════════════════════════════════════════════════════════
-   DRIFT DETECTOR — live GitHub + Linear integration
+   DRIFT REVIEW — declaration diff from configured sources
    ═══════════════════════════════════════════════════════════ */
 (function initDriftDetector() {
   const POLL_INTERVAL  = 30_000; // ms — polling fallback
@@ -134,8 +134,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         <li class="drift-finding">
           <span class="drift-finding-dot drift-finding-dot--info" aria-hidden="true"></span>
           <div class="drift-finding-body">
-            <div class="drift-finding-title">No drift findings — declared architecture matches observed state</div>
-            <div class="drift-finding-meta">All IaC, dependencies, runbooks, and Linear risks are in sync</div>
+            <div class="drift-finding-title">No drift findings — declared architecture matches compared declarations</div>
+            <div class="drift-finding-meta">Compared IaC, dependencies, runbooks, and Linear risks are aligned</div>
           </div>
         </li>`;
       return;
@@ -179,11 +179,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (hasDrift) {
       setStatusIcon('warn');
       if (statusHeading) statusHeading.textContent = `${allFindings.length} drift finding${allFindings.length !== 1 ? 's' : ''} detected`;
-      if (statusSub) statusSub.textContent = 'Declared architecture diverges from observed state in GitHub / Linear';
+      if (statusSub) statusSub.textContent = 'Declaration diff found against your infrastructure-as-code in GitHub and your tracked work in Linear';
     } else {
       setStatusIcon('ok');
       if (statusHeading) statusHeading.textContent = 'Architecture in sync';
-      if (statusSub) statusSub.textContent = 'No drift detected — declared model matches GitHub, Linear, and deployment state';
+      if (statusSub) statusSub.textContent = 'No declaration drift found — declared model matches compared IaC, tracked work, and deployment declarations';
     }
 
     if (statusTs) statusTs.textContent = data.timestamp ? `Updated ${formatTs(data.timestamp)}` : '';
@@ -198,7 +198,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       findings: [
         { title: 'Governance runbook review pending update', meta: 'Connected evidence source · governance runbook review pending', severity: 'warn', category: 'runbook', tag: 'Runbook' },
         { title: 'Pinecone index dependency not declared in architecture.yaml', meta: 'GitHub · infra-declaration/architecture.yaml · missing vector-store lane', severity: 'error', category: 'dep', tag: 'Dep' },
-        { title: 'Supabase replica region us-west-2 not in IaC', meta: 'GitHub · terraform/supabase.tf · observed in deploy but not declared', severity: 'error', category: 'iac', tag: 'IaC' },
+        { title: 'Supabase replica region us-west-2 not in IaC', meta: 'GitHub · terraform/supabase.tf · present in deployment declaration but not declared', severity: 'error', category: 'iac', tag: 'IaC' },
       ],
     };
   }
@@ -255,8 +255,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   /* ─── Boot ────────────────────────────────────────────── */
   // Show loading state first
   setStatusIcon('loading');
-  if (statusHeading) statusHeading.textContent = 'Connecting to GitHub & Linear…';
-  if (statusSub) statusSub.textContent = 'Fetching declared architecture and open drift issues';
+  if (statusHeading) statusHeading.textContent = 'Reviewing GitHub and Linear declarations…';
+  if (statusSub) statusSub.textContent = 'Loading declared architecture and tracked work';
 
   // Attempt SSE first, fall back to polling
   if (!trySSE()) startPolling();

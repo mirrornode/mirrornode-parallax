@@ -101,6 +101,11 @@
           the design before reality breaks the assumptions.
         </p>
 
+        <div class="hero-boundary reveal" data-reveal>
+          <strong>Modeling tool — not runtime monitoring.</strong>
+          Parallax maps declared system assumptions, dependencies, and risk paths. It does not observe live systems, detect incidents, or certify operational safety.
+        </div>
+
         <!-- CTAs -->
         <div class="hero-ctas reveal" data-reveal>
           <a href="https://public-ivory-mu.vercel.app" class="btn btn--primary" target="_blank" rel="noopener">
@@ -126,7 +131,7 @@
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item">
             <span class="stat-value">RTO/RPO</span>
-            <span class="stat-label">Live under fault injection</span>
+            <span class="stat-label">Simulated under fault scenarios</span>
           </div>
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item">
@@ -188,12 +193,12 @@
           <div class="terminal-row terminal-row--nodes">
             <span class="t-label">Agent nodes</span>
             <div class="t-nodes">
-              <span class="t-node t-node--on" title="Theia — AI orchestration">TH</span>
-              <span class="t-node t-node--on" title="Grok — real-time inference">GK</span>
-              <span class="t-node t-node--on" title="Claude — reasoning layer">CL</span>
-              <span class="t-node t-node--on" title="Merlin — workflow">ME</span>
-              <span class="t-node t-node--on" title="Lucian — data pipeline">LU</span>
-              <span class="t-node t-node--warn" title="Governance — audit (degraded)">GV</span>
+              <span class="t-node t-node--on" title="Coordination — orchestration role">TH</span>
+              <span class="t-node t-node--on" title="Inference — model lane">GK</span>
+              <span class="t-node t-node--on" title="Reasoning — review and synthesis lane">CL</span>
+              <span class="t-node t-node--on" title="Workflow — automation lane">ME</span>
+              <span class="t-node t-node--on" title="Data — pipeline lane">LU</span>
+              <span class="t-node t-node--warn" title="Governance — review lane">GV</span>
             </div>
           </div>
           <div class="terminal-footer" aria-live="polite">
@@ -236,7 +241,7 @@
             </svg>
           </div>
           <h3 class="proof-title">Detect divergence</h3>
-          <p class="proof-body">Compare declared architecture against connected evidence sources such as repositories, deployment records, and runbooks. Surface drift before it becomes an incident.</p>
+          <p class="proof-body">Compare declared architecture against your infrastructure-as-code in GitHub and your tracked work in Linear. Surface declaration gaps before they become review blockers.</p>
         </div>
       </div>
     </section>
@@ -252,53 +257,53 @@
           A shared thinking environment for infrastructure decisions.
         </h2>
         <p class="section-sub reveal" data-reveal>
-          MIRRORNODE turns abstract architecture claims into a live, manipulable model.
-          It exposes the gap between what the system says it is and what it actually does.
+          MIRRORNODE turns abstract architecture claims into an interactive, manipulable model.
+          It exposes the gap between what the system declares and what its supporting records declare.
         </p>
 
         <!-- Framework anatomy grid -->
         <div class="framework-grid">
-          <!-- Node taxonomy -->
+          <!-- Example orchestration map -->
           <div class="framework-card reveal" data-reveal>
-            <div class="framework-card-label">Node taxonomy</div>
+            <div class="framework-card-label">Example orchestration map</div>
             <div class="node-list">
               <div class="node-row">
                 <span class="node-badge node-badge--ai">AI</span>
                 <div class="node-info">
-                  <span class="node-name">Theia</span>
-                  <span class="node-role">Orchestration layer</span>
+                  <span class="node-name">Coordination</span>
+                  <span class="node-role">Coordination layer</span>
                 </div>
                 <span class="node-status node-status--ok">●</span>
               </div>
               <div class="node-row">
                 <span class="node-badge node-badge--ai">AI</span>
                 <div class="node-info">
-                  <span class="node-name">Grok</span>
-                  <span class="node-role">Real-time inference</span>
+                  <span class="node-name">Inference</span>
+                  <span class="node-role">Inference model lane</span>
                 </div>
                 <span class="node-status node-status--ok">●</span>
               </div>
               <div class="node-row">
                 <span class="node-badge node-badge--ai">AI</span>
                 <div class="node-info">
-                  <span class="node-name">Claude</span>
-                  <span class="node-role">Reasoning &amp; synthesis</span>
+                  <span class="node-name">Reasoning</span>
+                  <span class="node-role">Review and synthesis lane</span>
                 </div>
                 <span class="node-status node-status--ok">●</span>
               </div>
               <div class="node-row">
                 <span class="node-badge node-badge--wf">WF</span>
                 <div class="node-info">
-                  <span class="node-name">Merlin</span>
-                  <span class="node-role">Workflow automation</span>
+                  <span class="node-name">Workflow</span>
+                  <span class="node-role">Automation lane</span>
                 </div>
                 <span class="node-status node-status--ok">●</span>
               </div>
               <div class="node-row">
                 <span class="node-badge node-badge--data">DP</span>
                 <div class="node-info">
-                  <span class="node-name">Lucian</span>
-                  <span class="node-role">Data pipeline</span>
+                  <span class="node-name">Data</span>
+                  <span class="node-role">Pipeline lane</span>
                 </div>
                 <span class="node-status node-status--ok">●</span>
               </div>
@@ -306,7 +311,7 @@
                 <span class="node-badge node-badge--audit">AUD</span>
                 <div class="node-info">
                   <span class="node-name">Governance</span>
-                  <span class="node-role">Audit &amp; review</span>
+                  <span class="node-role">Governance review lane</span>
                 </div>
                 <span class="node-status node-status--warn">●</span>
               </div>
@@ -404,7 +409,19 @@
               </div>
               <div class="ff-item">
                 <span class="ff-icon" aria-hidden="true">⬡</span>
-                <span class="ff-label">Drift: declared vs. observed state</span>
+                <span class="ff-label">Workflow intake via repeated orchestration cycles on new tickets (user-triggered start)</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">View agent progress, logs, and approve actions in the dashboard during active runs</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Imports tickets from Linear / GitHub Issues as tasks when you run <code>parallax start</code> or refresh</span>
+              </div>
+              <div class="ff-item">
+                <span class="ff-icon" aria-hidden="true">⬡</span>
+                <span class="ff-label">Drift: declaration vs. declaration</span>
               </div>
               <div class="ff-item">
                 <span class="ff-icon" aria-hidden="true">⬡</span>
@@ -446,7 +463,7 @@
               </svg>
             </div>
             <h3 class="uc-card-title">AI platform builders</h3>
-            <p class="uc-card-body">Model multi-agent systems, orchestration rails, vector search, and runtime instability. Know your single points of failure before they fire.</p>
+            <p class="uc-card-body">Model multi-agent systems, orchestration rails, vector search, and failure modes. Identify single points of failure in the declared model.</p>
             <span class="uc-card-cta">Open Parallax Lab ↗</span>
           </a>
 
@@ -469,7 +486,7 @@
               </svg>
             </div>
             <h3 class="uc-card-title">Audit &amp; governance</h3>
-            <p class="uc-card-body">Review architecture assumptions, runbook currency, unresolved risks, and possible production drift in one place.</p>
+            <p class="uc-card-body">Review architecture assumptions, runbook currency, unresolved risks, and possible declaration drift in one place.</p>
             <span class="uc-card-cta">Open Parallax Lab ↗</span>
           </a>
 
@@ -514,7 +531,7 @@
             <div class="hiw-step-num" aria-hidden="true">02</div>
             <div class="hiw-step-content">
               <h3 class="hiw-step-title">Stress engine</h3>
-              <p class="hiw-step-body">Run fault scenarios against the declared model. AZ outage, data lag, bad deploy, queue backlog, provider failure, operational overload. Review simulated RTO, RPO, availability, cost, and data-loss exposure changes before production deployment.</p>
+              <p class="hiw-step-body">Run fault scenarios against the declared model. The model is deterministic — same inputs, same outputs. Fault scenarios layer probabilistic estimates on top of that model; treat those as directional.</p>
             </div>
           </div>
 
@@ -524,7 +541,7 @@
             <div class="hiw-step-num" aria-hidden="true">03</div>
             <div class="hiw-step-content">
               <h3 class="hiw-step-title">Drift detector</h3>
-              <p class="hiw-step-body">Compare the declared model against connected evidence sources and available operational records. Surface possible missing IaC, undeclared dependencies, stale runbooks, deployment mismatches, and unresolved risks before they become incidents.</p>
+              <p class="hiw-step-body">Compare the declared model against other declarations: infrastructure-as-code, tracked work, runbooks, and deployment records. Drift detection compares declarations, not live infrastructure — it won't catch config that exists only in production.</p>
             </div>
           </div>
         </div>
@@ -533,16 +550,16 @@
 
 
     <!-- ═══════════════════════════════════════════
-         DRIFT DETECTOR — live widget
+         DRIFT REVIEW — declaration diff widget
     ═══════════════════════════════════════════ -->
     <section class="section-drift" aria-labelledby="drift-heading">
       <div class="section-inner">
-        <div class="section-label reveal" data-reveal>Live · GitHub + Linear</div>
+        <div class="section-label reveal" data-reveal>Evidence review demo</div>
         <h2 id="drift-heading" class="section-heading reveal" data-reveal>
           Drift review surface
         </h2>
         <p class="section-sub reveal" data-reveal>
-          The drift review surface compares your declared architecture manifest against connected evidence sources when configured. It is designed to reduce manual review, not replace formal audit or operational verification.
+          The drift review surface compares a declared architecture manifest against other declarations when configured. It is designed to support manual review, not replace formal audit or operational verification.
         </p>
 
         <div class="drift-widget reveal" data-reveal>
@@ -554,11 +571,11 @@
                 <line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
               </svg>
-              Architecture drift status
+              Architecture declaration diff
             </div>
-            <div class="drift-live-badge" aria-label="Live polling every 30 seconds">
+            <div class="drift-live-badge" aria-label="Periodic evidence check">
               <span class="drift-live-dot" id="drift-live-dot" aria-hidden="true"></span>
-              Live · 30s poll
+              Demo · periodic check
             </div>
           </div>
 
@@ -568,8 +585,8 @@
               <svg class="spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></svg>
             </div>
             <div class="drift-status-text">
-              <div class="drift-status-heading" id="drift-status-heading">Connecting to GitHub &amp; Linear&hellip;</div>
-              <div class="drift-status-sub" id="drift-status-sub">Fetching declared architecture and open drift issues</div>
+              <div class="drift-status-heading" id="drift-status-heading">Evidence sources not connected</div>
+              <div class="drift-status-sub" id="drift-status-sub">Reviewing declarations and tracked work</div>
             </div>
             <div class="drift-status-ts" id="drift-status-ts" aria-label="Last updated time"></div>
           </div>
@@ -580,7 +597,7 @@
               <span class="drift-finding-dot drift-finding-dot--info" aria-hidden="true"></span>
               <div class="drift-finding-body">
                 <div class="drift-finding-title">Initializing scan&hellip;</div>
-                <div class="drift-finding-meta">Comparing declared manifest against GitHub + Linear</div>
+                <div class="drift-finding-meta">Comparing declared manifest against configured evidence sources</div>
               </div>
             </li>
           </ul>
@@ -588,14 +605,14 @@
           <!-- Connect callout -->
           <div class="drift-connect-callout">
             <div class="drift-connect-text">
-              <strong>Wire to live data:</strong> deploy <code style="font-size:var(--text-xs);color:var(--color-primary)">api/drift.js</code> with
-              <code style="font-size:var(--text-xs);color:var(--color-primary)">GITHUB_TOKEN</code> +
-              <code style="font-size:var(--text-xs);color:var(--color-primary)">LINEAR_TOKEN</code> env vars.
-              Webhook push also supported &mdash; see <code style="font-size:var(--text-xs);color:var(--color-primary)">api/webhook/github.js</code>.
+              <strong>Connect evidence sources:</strong> deploy <code style="font-size:var(--text-xs);color:var(--color-primary)">api/drift.js</code> with
+              <code style="font-size:var(--text-xs);color:var(--color-primary)">EVIDENCE_SOURCE_TOKEN</code>
+              credentials when explicitly configured.
+              Webhook-based updates can be reviewed once explicitly configured.
             </div>
             <div class="drift-connect-btns">
-              <a href="https://github.com/INPhase-Resplendence-Cognition" class="drift-connect-btn" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://linear.app" class="drift-connect-btn" target="_blank" rel="noopener">Linear</a>
+              <span class="drift-connect-btn" aria-disabled="true">Repository source</span>
+              <span class="drift-connect-btn" aria-disabled="true">Workflow source</span>
             </div>
           </div>
         </div>
@@ -611,7 +628,7 @@
       <div class="section-inner cta-inner">
         <h2 id="cta-heading" class="cta-heading reveal" data-reveal>Enter Parallax.</h2>
         <p class="cta-sub reveal" data-reveal>
-          Change provider mix, storage tiers, regions, failover patterns, fault scenarios, and drift rules.
+          Parallax is a working prototype you can interact with today. Change provider mix, storage tiers, regions, failover patterns, fault scenarios, and drift rules.
           Review cost, resilience, concentration risk, RTO, RPO, and operational tradeoffs across modeled scenarios.
         </p>
         <a href="https://public-ivory-mu.vercel.app" class="btn btn--primary btn--large reveal" data-reveal target="_blank" rel="noopener">

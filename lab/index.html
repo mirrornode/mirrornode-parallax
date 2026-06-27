@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallax Lab — MIRRORNODE</title>
+  <meta name="description" content="Interactive Parallax Lab surface for modeling declared infrastructure assumptions, stress scenarios, drift posture, and recovery tradeoffs." />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    body { min-height: 100vh; }
+    .lab-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 112px 0 72px; }
+    .lab-header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 32px; }
+    .lab-title { font-family: var(--font-display, inherit); font-size: clamp(2.4rem, 8vw, 5.5rem); line-height: .9; letter-spacing: -0.06em; margin: 0; }
+    .lab-sub { max-width: 720px; color: var(--color-text-muted, #a9a29b); font-size: 1.08rem; line-height: 1.7; }
+    .lab-grid { display: grid; grid-template-columns: 360px 1fr; gap: 22px; align-items: start; }
+    .lab-card { border: 1px solid rgba(79, 152, 163, .24); background: rgba(13, 12, 11, .72); border-radius: 24px; padding: 22px; box-shadow: 0 24px 80px rgba(0,0,0,.24); }
+    .lab-card h2, .lab-card h3 { margin-top: 0; }
+    .lab-control { display: grid; gap: 8px; margin: 18px 0; }
+    .lab-control label { display: flex; justify-content: space-between; gap: 16px; font-size: .9rem; color: var(--color-text-muted, #a9a29b); }
+    .lab-control input, .lab-control select { width: 100%; accent-color: var(--color-primary, #4f98a3); }
+    .lab-control select { background: rgba(255,255,255,.04); color: inherit; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 10px; }
+    .metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-bottom: 22px; }
+    .metric { border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 16px; background: rgba(255,255,255,.035); }
+    .metric span { display:block; color: var(--color-text-muted, #a9a29b); font-size:.78rem; text-transform: uppercase; letter-spacing:.08em; }
+    .metric strong { display:block; font-size: clamp(1.7rem, 4vw, 2.6rem); margin-top: 8px; }
+    .lane-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .lane { border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 16px; background: linear-gradient(135deg, rgba(79,152,163,.12), rgba(255,255,255,.025)); }
+    .lane b { display: block; margin-bottom: 8px; }
+    .lane p { margin: 0; color: var(--color-text-muted, #a9a29b); line-height: 1.55; }
+    .risk-list { display: grid; gap: 10px; margin-top: 18px; }
+    .risk { display:flex; justify-content:space-between; gap: 16px; border-top: 1px solid rgba(255,255,255,.08); padding-top: 12px; color: var(--color-text-muted, #a9a29b); }
+    .risk strong { color: inherit; }
+    .back-link { color: var(--color-primary, #4f98a3); text-decoration: none; font-weight: 700; }
+    @media (max-width: 860px) { .lab-header, .lab-grid { grid-template-columns: 1fr; display: grid; } .metric-grid, .lane-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" role="navigation" aria-label="Lab navigation">
+      <a href="/" class="nav-logo" aria-label="MIRRORNODE home">
+        <svg class="logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="14" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="14" r="2" fill="currentColor"/></svg>
+        <span class="logo-wordmark">MIRRORNODE</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/" class="nav-link">Front page</a></li>
+        <li><a href="https://mirrornode.xyz/audit" class="nav-link nav-link--accent" target="_blank" rel="noopener">Request Osiris Audit — $149</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="lab-shell">
+    <section class="lab-header" aria-labelledby="lab-heading">
+      <div>
+        <div class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>PARALLAX / Lab Route Active</div>
+        <h1 id="lab-heading" class="lab-title">Architecture<br><span class="hero-heading--accent">modeling lab.</span></h1>
+      </div>
+      <p class="lab-sub"><strong>Modeling tool — not runtime monitoring.</strong> Parallax maps declared system assumptions, dependencies, and risk paths. It does not observe live systems, detect incidents, or certify operational safety. Use this lab to explore declared architecture tradeoffs before committing to production assumptions.</p>
+    </section>
+
+    <section class="lab-grid" aria-label="Interactive modeling controls">
+      <aside class="lab-card">
+        <h2>Declare scenario</h2>
+        <div class="lab-control">
+          <label for="providerMix">AWS concentration <strong><span id="providerValue">62</span>%</strong></label>
+          <input id="providerMix" type="range" min="10" max="95" value="62" />
+        </div>
+        <div class="lab-control">
+          <label for="regions">Regions <strong><span id="regionValue">3</span></strong></label>
+          <input id="regions" type="range" min="1" max="6" value="3" />
+        </div>
+        <div class="lab-control">
+          <label for="storageTier">Primary storage tier</label>
+          <select id="storageTier">
+            <option value="nvme">NVMe / hot path</option>
+            <option value="block" selected>Block storage</option>
+            <option value="object">Object storage</option>
+            <option value="archive">Archive tier</option>
+          </select>
+        </div>
+        <div class="lab-control">
+          <label for="failover">Failover posture</label>
+          <select id="failover">
+            <option value="cold">Cold standby</option>
+            <option value="warm">Warm standby</option>
+            <option value="active" selected>Active-active</option>
+          </select>
+        </div>
+        <div class="lab-control">
+          <label for="fault">Fault scenario</label>
+          <select id="fault">
+            <option value="normal">No active fault</option>
+            <option value="az" selected>AZ outage</option>
+            <option value="region">Region impairment</option>
+            <option value="queue">Queue backlog</option>
+            <option value="deploy">Bad deploy</option>
+          </select>
+        </div>
+      </aside>
+
+      <section class="lab-card" aria-live="polite">
+        <h2>Modeled posture</h2>
+        <div class="metric-grid">
+          <div class="metric"><span>RTO estimate</span><strong id="rto">4m 12s</strong></div>
+          <div class="metric"><span>RPO estimate</span><strong id="rpo">48s</strong></div>
+          <div class="metric"><span>Risk score</span><strong id="risk">38</strong></div>
+        </div>
+
+        <div class="lane-grid">
+          <div class="lane"><b>Architecture</b><p id="archText">Active-active posture reduces outage exposure but increases operational tax and coordination burden.</p></div>
+          <div class="lane"><b>Storage</b><p id="storageText">Block storage gives strong general-purpose durability with moderate replication complexity.</p></div>
+          <div class="lane"><b>Stress</b><p id="stressText">AZ outage active. Recovery remains inside target if regional routing and state replication are healthy.</p></div>
+          <div class="lane"><b>Drift</b><p>Declaration review compares declared architecture against configured evidence sources. Optional Linear / GitHub adapters are present for governed drift intake when credentials are explicitly configured.</p></div>
+        </div>
+
+        <div class="risk-list" aria-label="Risk breakdown">
+          <div class="risk"><span>Provider concentration</span><strong id="providerRisk">Moderate</strong></div>
+          <div class="risk"><span>Operational tax</span><strong id="opsTax">52%</strong></div>
+          <div class="risk"><span>Review posture</span><strong>Manual review required</strong></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const provider = $('providerMix');
+    const regions = $('regions');
+    const storage = $('storageTier');
+    const failover = $('failover');
+    const fault = $('fault');
+
+    const storageCopy = {
+      nvme: 'NVMe improves hot-path performance but raises pressure on replication, locality, and failover discipline.',
+      block: 'Block storage gives strong general-purpose durability with moderate replication complexity.',
+      object: 'Object storage lowers durability anxiety but can add latency and workflow coupling.',
+      archive: 'Archive tier lowers cost but weakens recovery speed and increases operational planning burden.'
+    };
+    const failoverCopy = {
+      cold: 'Cold standby reduces spend but materially increases recovery time and manual coordination.',
+      warm: 'Warm standby balances cost and recovery speed, with moderate coordination overhead.',
+      active: 'Active-active posture reduces outage exposure but increases operational tax and coordination burden.'
+    };
+    const faultCopy = {
+      normal: 'No active fault. Review focuses on declared dependencies, runbook currency, and hidden concentration.',
+      az: 'AZ outage active. Recovery remains inside target if regional routing and state replication are healthy.',
+      region: 'Region impairment active. Cross-region assumptions and data replication become launch-critical.',
+      queue: 'Queue backlog active. Throughput, worker scaling, retry policy, and dead-letter handling need review.',
+      deploy: 'Bad deploy active. Rollback path, blast radius, and release gates determine containment quality.'
+    };
+
+    function compute() {
+      const p = Number(provider.value);
+      const r = Number(regions.value);
+      const f = failover.value;
+      const s = storage.value;
+      const x = fault.value;
+      let risk = Math.round((p * .45) + ((7 - r) * 5));
+      if (f === 'cold') risk += 18;
+      if (f === 'warm') risk += 8;
+      if (s === 'archive') risk += 14;
+      if (s === 'nvme') risk += 6;
+      if (x === 'region') risk += 16;
+      if (x === 'deploy') risk += 10;
+      if (x === 'queue') risk += 8;
+      risk = Math.max(12, Math.min(96, risk));
+      const rtoSeconds = Math.max(45, Math.round(95 + risk * 5.2 - r * 28 - (f === 'active' ? 95 : f === 'warm' ? 45 : 0)));
+      const rpoSeconds = Math.max(12, Math.round(18 + risk * 1.4 - r * 8 + (s === 'archive' ? 80 : s === 'object' ? 16 : 0)));
+      $('providerValue').textContent = p;
+      $('regionValue').textContent = r;
+      $('risk').textContent = risk;
+      $('rto').textContent = `${Math.floor(rtoSeconds / 60)}m ${String(rtoSeconds % 60).padStart(2, '0')}s`;
+      $('rpo').textContent = rpoSeconds >= 60 ? `${Math.floor(rpoSeconds / 60)}m ${String(rpoSeconds % 60).padStart(2, '0')}s` : `${rpoSeconds}s`;
+      $('providerRisk').textContent = p >= 75 ? 'High' : p >= 45 ? 'Moderate' : 'Low';
+      $('opsTax').textContent = `${Math.min(92, Math.round(24 + (f === 'active' ? 28 : f === 'warm' ? 16 : 6) + r * 4 + (100 - p) * .12))}%`;
+      $('archText').textContent = failoverCopy[f];
+      $('storageText').textContent = storageCopy[s];
+      $('stressText').textContent = faultCopy[x];
+    }
+    [provider, regions, storage, failover, fault].forEach((el) => el.addEventListener('input', compute));
+    compute();
+  </script>
+</body>
+</html>

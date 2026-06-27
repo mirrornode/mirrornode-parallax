@@ -18,6 +18,14 @@
       "destination": "/api/drift"
     },
     {
+      "source": "/lab",
+      "destination": "/lab/index.html"
+    },
+    {
+      "source": "/lab/(.*)",
+      "destination": "/lab/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

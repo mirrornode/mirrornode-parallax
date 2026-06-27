@@ -3,3 +3,5 @@
 review-evidence/
 server_lucian.py
 .DS_Store
+.vercel
+.env*

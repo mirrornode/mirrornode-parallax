@@ -27,20 +27,26 @@ jobs:
           test -f main.js
           test -f style.css
           test -f vercel.json
+          test -f lab/index.html
 
       - name: Verify governance and revenue copy
         run: |
           set -euo pipefail
           grep -F 'Modeling tool — not runtime monitoring.' index.html
+          grep -F 'Modeling tool — not runtime monitoring.' lab/index.html
           grep -F 'Optional Linear / GitHub adapters are present for governed drift intake when credentials are explicitly configured' index.html
+          grep -F 'Optional Linear / GitHub adapters are present for governed drift intake when credentials are explicitly configured' lab/index.html
           grep -F 'https://parallax.mirrornode.xyz' index.html
+          grep -F '/lab' index.html
           grep -F 'https://mirrornode.xyz/audit' index.html
+          grep -F 'https://mirrornode.xyz/audit' lab/index.html
           grep -F 'Request Osiris Audit — $149' index.html
+          grep -F 'Request Osiris Audit — $149' lab/index.html
 
       - name: Reject stale deployment and legacy-secret references
         run: |
           set -euo pipefail
-          if grep -Rni 'public-ivory-mu.vercel.app' index.html main.js style.css vercel.json api 2>/dev/null; then
+          if grep -Rni 'public-ivory-mu.vercel.app' index.html main.js style.css vercel.json lab api 2>/dev/null; then
             echo 'Old Vercel preview/public URL found. Use https://parallax.mirrornode.xyz instead.'
             exit 1
           fi

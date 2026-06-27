@@ -1,0 +1,55 @@
+name: Parallax Front-of-House Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify published Parallax surface
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify required static files
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f main.js
+          test -f style.css
+          test -f vercel.json
+
+      - name: Verify governance and revenue copy
+        run: |
+          set -euo pipefail
+          grep -F 'Modeling tool — not runtime monitoring.' index.html
+          grep -F 'Optional Linear / GitHub adapters are present for governed drift intake when credentials are explicitly configured' index.html
+          grep -F 'https://parallax.mirrornode.xyz' index.html
+          grep -F 'https://mirrornode.xyz/audit' index.html
+          grep -F 'Request Osiris Audit — $149' index.html
+
+      - name: Reject stale deployment and legacy-secret references
+        run: |
+          set -euo pipefail
+          if grep -Rni 'public-ivory-mu.vercel.app' index.html main.js style.css vercel.json api 2>/dev/null; then
+            echo 'Old Vercel preview/public URL found. Use https://parallax.mirrornode.xyz instead.'
+            exit 1
+          fi
+          if grep -nE '"env"[[:space:]]*:|@github-token|@linear-token|@github-webhook-secret|@linear-webhook-secret' vercel.json; then
+            echo 'Legacy Vercel secret indirection found in vercel.json. Use project env vars instead.'
+            exit 1
+          fi
+
+      - name: Verify vercel.json parses
+        run: |
+          set -euo pipefail
+          python -m json.tool vercel.json >/dev/null

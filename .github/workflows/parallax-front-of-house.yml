@@ -43,6 +43,18 @@ jobs:
           grep -F 'Request Osiris Audit — $149' index.html
           grep -F 'Request Osiris Audit — $149' lab/index.html
 
+      - name: Verify drift detector DOM hooks
+        run: |
+          set -euo pipefail
+          grep -F 'id="drift-status-icon"' index.html
+          grep -F 'id="drift-status-heading"' index.html
+          grep -F 'id="drift-status-sub"' index.html
+          grep -F 'id="drift-status-ts"' index.html
+          grep -F 'id="drift-findings-list"' index.html
+          grep -F 'id="drift-live-dot"' index.html
+          grep -F "document.getElementById('drift-status-icon')" main.js
+          grep -F "document.getElementById('drift-findings-list')" main.js
+
       - name: Reject stale deployment and legacy-secret references
         run: |
           set -euo pipefail

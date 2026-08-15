@@ -21,7 +21,7 @@ The public experience is therefore not a simplified KHEPRI clone and not a conve
 
 ### Category
 
-**Agent control and assurance.**
+**Agent authority mapping and evidence.**
 
 Long-form description:
 
@@ -33,7 +33,7 @@ Long-form description:
 
 ### Supporting trust line
 
-> **Evidence first. Human-gated. Read-only first. Unknown stays unknown.**
+> **Evidence first. Human approval made visible. Read-only first. Unknown stays unknown.**
 
 ### Terms not used as the primary headline
 
@@ -168,7 +168,7 @@ Short distinction:
 Four compact principles:
 
 - **Evidence first** — claims have support states.
-- **Human-gated** — consequential approval remains explicit.
+- **Human approval made visible** — observed and declared approval boundaries are distinguished; the public surface does not claim to enforce them.
 - **Read-only first** — inspection does not imply mutation authority.
 - **Unknown stays unknown** — ambiguity is not silently upgraded into fact.
 
@@ -359,16 +359,24 @@ Do not request credentials during initial orientation.
 
 Purpose: answer **What is here and where should I look first?**
 
-Launch candidate:
+Frozen release-v1 entry contract:
 
+- public name: **Osiris Structural Scan**
+- service contract: **Structural Scan v1**
 - fixed price: **$149**
-- passive/read-only
-- one bounded environment
-- compact structural map
-- prioritized findings
-- short turnaround
+- passive evidence analysis only
+- 1 repository and 1 environment
+- up to 3 material principals
+- up to 3 integrations/tool surfaces
+- up to 8 material authority paths
+- up to 12 substantive evidence-source items
+- target turnaround: **3 business days** after complete intake and access readiness
+- outputs: compact Structural Map, up to 5 material findings, Evidence State Notes, and one Next-Step Recommendation
+- exclusions: no penetration testing, certification, complete security review, organization-wide discovery, implementation, remediation, or permission to change customer systems
 
-The exact scope caps and delivery terms must match the canonical service contract before public copy changes.
+Governing source: [Structural Scan v1](https://github.com/mirrornode/osiris-audit/blob/662105a313b06fffcfb8e4990caa21ec993be262/docs/STRUCTURAL_SCAN_V1.md).
+
+Routing rule: requests within these caps may enter the Structural Scan. Requests exceeding them, requiring a full Authority Map or claim/edge ledger, broad aggregate-authority analysis, a comprehensive remediation plan, or control-plane fit assessment must be re-scoped or routed to the Agent Authority Audit. Purchase of the scan does not commit the customer to follow-on work.
 
 #### Offer 2 — Agent Authority Audit
 
@@ -541,7 +549,7 @@ and
 
 `effect → execution path → gate/authority → evidence → initiating task/origin`
 
-The public visualization demonstrates reconstructibility rather than merely describing it.
+The public visualization may demonstrate only that the sampled path was reconstructed from the cited evidence available on the stated audit date and within the disclosed evidence coverage. It must not generalize that result to the environment or method as a whole. Unsampled paths remain explicitly **UNKNOWN**.
 
 ---
 
@@ -623,21 +631,27 @@ Release the smallest coherent truth.
 
 ## Gate A — Business activation
 
-Before accepting paid work, complete the chosen business formation/licensing/payment-account sequence and confirm the entity/brand used in checkout and service terms.
+**Production paid-launch prerequisite.**
+
+Before any public production surface exposes live checkout or accepts paid work, complete the chosen business formation/licensing/payment-account sequence and confirm the legal entity, public brand, payment-account identity, checkout identity, and service-term identity.
+
+Until Gate A passes, every commercial CTA must remain non-transactional and clearly limited to orientation, an interest request, or a scope inquiry. A reachable live Stripe Checkout session is not permitted.
 
 ## Gate B — Commercial contract
 
-Lock:
+The release-v1 entry offer is **Osiris Structural Scan**, governed by the linked Structural Scan v1 contract above. Its $149 price, scope caps, three-business-day target, outputs, exclusions, access-closure rule, and routing boundary must appear consistently on `/`, `/lab`, and `mirrornode.xyz/audit`.
 
-- service name;
-- price or pricing rule;
-- scope caps;
-- turnaround trigger;
-- access requirements;
-- data handling;
+Before paid release, also lock and publish:
+
+- legal seller/entity identity;
+- payment and checkout identity;
+- intake and access requirements;
+- data handling and retention;
 - cancellation/refund boundary;
-- deliverable;
-- clarification/remediation boundary.
+- clarification boundary;
+- a statement that remediation and follow-on work require separate authorization.
+
+Any public surface still labeled only “Osiris Audit,” exposing the older generic one-pass offer, or using legacy Seraphyth Dynamics branding fails Gate B.
 
 ## Gate C — Public proof
 
@@ -686,7 +700,7 @@ A release candidate is ready for Operator review only if all are true:
 3. `/lab` visibly distinguishes modeled/declared state from live observation.
 4. The authority-path visual does not imply that connectivity equals authorization.
 5. UNKNOWN is visible as a legitimate result.
-6. The visitor can reach the paid audit path from both `/` and `/lab`.
+6. The visitor can reach the commercial intake path from both `/` and `/lab`; a live checkout is reachable only after Gate A passes.
 7. Audit scope is explained before credentials or sensitive material are requested.
 8. The public service identity is not split across unexplained MIRRORNODE / Seraphyth / Osiris branding.
 9. The Reference Environment uses real sanitized evidence rather than illustrative metrics presented as fact.
@@ -695,7 +709,8 @@ A release candidate is ready for Operator review only if all are true:
 12. Accessibility semantics do not depend on color, animation, hover, or visual position alone.
 13. Production release does not weaken Parallax's existing modeling-vs-monitoring boundary.
 14. Paid delivery terms match the actual service contract and checkout.
-15. Operator approval is explicit before production deployment.
+15. Gate A is complete before any live checkout is exposed; otherwise all commercial CTAs remain non-transactional.
+16. Operator approval is explicit before production deployment.
 
 ---
 
@@ -703,17 +718,17 @@ A release candidate is ready for Operator review only if all are true:
 
 The following are the final launch decisions this specification asks the Operator to make:
 
-1. **Category:** Agent control and assurance.
+1. **Category:** Agent authority mapping and evidence.
 2. **Headline:** Know what your AI agents can actually do.
-3. **Trust line:** Evidence first. Human-gated. Read-only first. Unknown stays unknown.
+3. **Trust line:** Evidence first. Human approval made visible. Read-only first. Unknown stays unknown.
 4. **Front door:** Parallax remains the public front-of-house for v1.
 5. **Commercial entry:** `mirrornode.xyz/audit` remains the paid-service boundary.
-6. **Entry offer:** Structural Scan remains the $149 fixed-price entry offer, subject to final service-contract reconciliation.
+6. **Entry offer:** Osiris Structural Scan is the $149 fixed-price entry offer under the frozen Structural Scan v1 scope, outputs, exclusions, and routing rule; live checkout remains blocked until Gates A and B pass.
 7. **Primary audit:** Agent Authority Audit is scope-first and deeper than the Structural Scan.
 8. **Proof:** MIRRORNODE becomes its own first public reference audit.
 9. **Brand:** MIRRORNODE is the public company/system brand; Osiris names the audit/assurance function; Parallax names the public visualization; KHEPRI names the deep Operator environment.
 10. **Interaction:** orientation before conversation; simple first, depth on demand.
 11. **Release posture:** public modeling and evidence first; no unsupported monitoring, certification, or autonomous-control claims.
-12. **Commercial progression:** Understand → Map → Control → Operate.
+12. **Commercial progression:** Understand → Map → Decide → Operate.
 
 Once these are frozen, implementation can be cut into small reviewable slices without reopening the product identity on every PR.
